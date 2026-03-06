@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rouge-lexer-yara-l (0.2.1)
+    rouge-lexer-yara-l (0.3.0)
       rouge (>= 3.0)
 
 GEM
