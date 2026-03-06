@@ -26,6 +26,7 @@ bundle install
 
 Once installed, Rouge will automatically discover the lexer. You can use `yaral`, `yara-l`, or `chronicle` as the language tag in fenced code blocks:
 
+```maekdown
 ````yaral
 rule SuspiciousLogin {
   meta:
@@ -43,7 +44,8 @@ rule SuspiciousLogin {
   condition:
     $e
 }
-````
+```
+
 
 ## Jekyll / GitHub Pages
 
