@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'rouge-lexer-yara-l'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.summary     = 'Rouge lexer for YARA-L'
   s.description = 'A Rouge plugin providing syntax highlighting for ' \
                   'YARA-L 2.0, the detection and search query language used by Google Security Operations'
