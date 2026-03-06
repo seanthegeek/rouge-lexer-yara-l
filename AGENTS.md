@@ -47,13 +47,25 @@ DEBUG=1 bundle exec ruby preview.rb
 
 ## Official references (use ONLY these — do not guess syntax)
 
+Use these to understand the language,
+
 ### Core language
 
 - YARA-L 2.0 language syntax: <https://cloud.google.com/chronicle/docs/detection/yara-l-2-0-syntax>
 - YARA-L overview: <https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-overview>
+- Meta section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/meta-syntax>
+- Events section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/events-syntax>
+- Match section syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/match-syntax>
+- Outcome section syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/outcome-syntax>
+- Condition section syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/condition-syntax>
+- Options section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax>
 - Expressions, operators, and constructs: <https://docs.cloud.google.com/chronicle/docs/yara-l/expressions>
+- Use nested if statements for more complex logic: <https://docs.cloud.google.com/chronicle/docs/yara-l/nested-if>
+- Use or in the condition section: <https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-or>
+- Use N OF syntax with event variables: <https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-n-of>
+- Repeated fields: <https://docs.cloud.google.com/chronicle/docs/yara-l/repeated-fields>
+- Use reference lists and data tables in YARA-L 2.0: <https://docs.cloud.google.com/chronicle/docs/yara-l/reference-list-syntax>
 - Functions reference: <https://docs.cloud.google.com/chronicle/docs/yara-l/functions>
-- Condition section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/condition-syntax>
 - YARA-L 2.0 examples: <https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples>
 
 ### Detection rules
