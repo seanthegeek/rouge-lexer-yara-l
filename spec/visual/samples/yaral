@@ -297,7 +297,6 @@ rule ArrayFunctions {
     $arr_min = arrays.min($e.network.sent_bytes)
     $arr_size = arrays.size($e.principal.ip)
     $merged = arrays.concat($e.principal.ip, $e.target.ip)
-    arrays.contains($e.principal.ip, "10.0.0.1")
 
   condition:
     $e
@@ -664,6 +663,44 @@ rule EnumTypes {
 }
 
 // =====================================================
+// SEARCH QUERY: outer joins
+// =====================================================
+$e1.metadata.event_type = "USER_LOGIN"
+$e2.metadata.event_type = "NETWORK_CONNECTION"
+left join $e1.principal.hostname = $e2.principal.hostname
+$host = $e1.principal.hostname
+
+match:
+  $host over 5m
+
+outcome:
+  $login_count = count($e1.metadata.id)
+
+// right outer join example
+$a.metadata.event_type = "USER_LOGIN"
+$b.metadata.event_type = "USER_LOGOUT"
+right join $a.target.user.userid = $b.target.user.userid
+$user = $b.target.user.userid
+
+match:
+  $user over 1h
+
+outcome:
+  $logout_count = count($b.metadata.id)
+
+// =====================================================
+// SEARCH QUERY: over every with time units
+// =====================================================
+metadata.event_type = "USER_LOGIN"
+$user = principal.user.userid
+
+match:
+  $user over every 1h
+
+outcome:
+  $hourly = count(metadata.id)
+
+// =====================================================
 // Nested conditionals
 // =====================================================
 rule NestedConditions {
@@ -683,3 +720,103 @@ rule NestedConditions {
   condition:
     $e
 }
+
+// =====================================================
+// SEARCH QUERY: earliest and latest aggregation functions
+// =====================================================
+metadata.event_type = "NETWORK_CONNECTION"
+$hostname = principal.hostname
+
+match:
+  $hostname
+
+outcome:
+  $start = earliest(metadata.event_timestamp)
+  $end = latest(metadata.event_timestamp)
+  $event_count = count(metadata.id)
+
+order:
+  $event_count desc
+
+limit:
+  20
+
+// =====================================================
+// SEARCH QUERY: multi-stage query
+// =====================================================
+stage daily_stats {
+  metadata.event_type = "NETWORK_CONNECTION"
+  $source = principal.hostname
+  $target = target.ip
+  $source != ""
+  $target != ""
+  $total_bytes = cast.as_int(network.sent_bytes + network.received_bytes)
+
+  match:
+    $source, $target by day
+
+  outcome:
+    $exchanged_bytes = sum($total_bytes)
+}
+
+$source = $daily_stats.source
+$target = $daily_stats.target
+
+match:
+  $source, $target
+
+outcome:
+  $avg_daily_bytes = avg($daily_stats.exchanged_bytes)
+
+// =====================================================
+// SEARCH QUERY: multi-stage with order and limit
+// =====================================================
+stage top_5_bytes_sent {
+  metadata.event_type = "NETWORK_CONNECTION"
+  network.sent_bytes > 0
+
+  outcome:
+    $bytes_sent = cast.as_int(network.sent_bytes)
+    $timestamp_seconds = metadata.event_timestamp.seconds
+
+  order:
+    $bytes_sent desc
+
+  limit:
+    5
+}
+
+outcome:
+  $latest_timestamp = timestamp.get_timestamp(max($top_5_bytes_sent.timestamp_seconds))
+  $earliest_timestamp = timestamp.get_timestamp(min($top_5_bytes_sent.timestamp_seconds))
+
+// =====================================================
+// SEARCH QUERY: multi-stage with statistical aggregations
+// =====================================================
+stage hourly_stats {
+  metadata.event_type = "NETWORK_CONNECTION"
+  $src_ip = principal.ip
+  $dst_ip = target.ip
+  $src_ip != ""
+  $dst_ip != ""
+
+  match:
+    $src_ip, $dst_ip over 1h
+
+  outcome:
+    $count = count(metadata.id)
+    $avg_recd_bytes = avg(network.received_bytes)
+    $std_recd_bytes = stddev(network.received_bytes)
+
+  condition:
+    $avg_recd_bytes > 100 and $std_recd_bytes > 50
+}
+
+$src_ip = $hourly_stats.src_ip
+$dst_ip = $hourly_stats.dst_ip
+
+match:
+  $src_ip, $dst_ip
+
+outcome:
+  $total_events = sum($hourly_stats.count)
