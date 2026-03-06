@@ -78,6 +78,8 @@ Use these to understand the language,
 ### Search queries
 
 - UDM search: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search>
+- Search joins: <https://docs.cloud.google.com/chronicle/docs/investigation/search-joins>
+- Correlate data with outer joins: <https://docs.cloud.google.com/chronicle/docs/investigation/outer-joins>
 - Statistics and aggregations in search: <https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search>
 - Conditions in search and dashboards: <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions>
 - Multi-stage queries: <https://docs.cloud.google.com/chronicle/docs/investigation/multi-stage-yaral>
