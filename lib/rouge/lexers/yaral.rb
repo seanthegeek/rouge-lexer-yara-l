@@ -29,6 +29,8 @@ module Rouge
           any all for of
           if else
           udm graph
+          left right join outer every
+          stage
         )
       end
 
@@ -42,6 +44,7 @@ module Rouge
         @aggregation_functions ||= Set.new %w(
           count count_distinct sum avg min max stddev
           array array_distinct
+          earliest latest
         )
       end
 
@@ -49,9 +52,9 @@ module Rouge
         @builtin_functions ||= Set.new %w(
           arrays.concat arrays.index_to_float arrays.index_to_int
           arrays.index_to_str arrays.join_string arrays.length
-          arrays.max arrays.min arrays.size arrays.contains
+          arrays.max arrays.min arrays.size
           bytes.to_base64
-          cast.as_bool cast.as_float cast.as_string
+          cast.as_bool cast.as_float cast.as_int cast.as_string
           group
           hash.fingerprint2011 hash.sha256
           math.abs math.ceil math.floor math.geo_distance
@@ -66,13 +69,13 @@ module Rouge
           strings.extract_domain strings.extract_hostname
           strings.from_base64 strings.from_hex
           strings.ltrim strings.reverse strings.rtrim
-          strings.split strings.starts_with
-          strings.to_lower strings.to_upper strings.trim
+          strings.split strings.to_lower strings.to_upper strings.trim
           strings.url_decode
           timestamp.as_unix_seconds timestamp.current_seconds
-          timestamp.get_date timestamp.get_minute timestamp.get_hour
-          timestamp.get_day_of_week timestamp.get_timestamp
-          timestamp.get_week timestamp.now
+          timestamp.get_date timestamp.get_minute
+          timestamp.get_hour timestamp.get_day_of_week
+          timestamp.get_timestamp timestamp.get_week
+          timestamp.now
           window.avg window.first window.last window.median
           window.mode window.range window.stddev window.variance
         )
@@ -118,9 +121,6 @@ module Rouge
         # Count references #name
         rule %r/#[a-zA-Z_]\w*/, Name::Variable::Instance
 
-        # Event/placeholder variables $name with optional field path
-        rule %r/\$[a-zA-Z_]\w*/, Name::Variable
-
         # Numbers
         rule %r/\b\d+\.\d+\b/, Num::Float
         rule %r/\b\d+\b/, Num::Integer
@@ -133,6 +133,24 @@ module Rouge
             token Name::Function
           end
         end
+
+        # Variable with UDM path and map access: $e.additional.fields["key"]
+        rule %r/(\$\w+)((?:\.\w+)+)(\[)("(?:[^"\\]|\\.)*")(\])/ do |m|
+          token Name::Variable, m[1]
+          token Name::Attribute, m[2]
+          token Punctuation, m[3]
+          token Str::Double, m[4]
+          token Punctuation, m[5]
+        end
+
+        # Variable with UDM path: $e.metadata.event_type
+        rule %r/(\$\w+)((?:\.\w+)+)/ do |m|
+          token Name::Variable, m[1]
+          token Name::Attribute, m[2]
+        end
+
+        # Standalone variable: $user, $host
+        rule %r/\$\w+/, Name::Variable
 
         # UDM field paths: sequences like principal.hostname, metadata.event_type
         # Distinguished from keywords by the dot path
