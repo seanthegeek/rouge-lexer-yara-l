@@ -6,19 +6,19 @@ A Rouge lexer plugin for [YARA-L 2.0](https://cloud.google.com/chronicle/docs/de
 
 Install the gem directly:
 
-```
+```ruby
 gem install rouge-lexer-yara-l
 ```
 
 Or add it to your `Gemfile`:
 
-```
+```ruby
 gem 'rouge-lexer-yara-l'
 ```
 
 Then run:
 
-```
+```ruby
 bundle install
 ```
 
@@ -26,7 +26,7 @@ bundle install
 
 Once installed, Rouge will automatically discover the lexer. You can use `yaral`, `yara-l`, or `chronicle` as the language tag in fenced code blocks:
 
-```maekdown
+```markdown
 ````yaral
 rule SuspiciousLogin {
   meta:
@@ -46,7 +46,6 @@ rule SuspiciousLogin {
 }
 ```
 
-
 ## Jekyll / GitHub Pages
 
 Add the gem to your site's `Gemfile` inside the `:jekyll_plugins` group:
@@ -63,31 +62,31 @@ Run `bundle install`, then use ` ```yaral ` fences in your posts and pages. Jeky
 
 Install dependencies:
 
-```
+```bash
 bundle install
 ```
 
 Run the test suite:
 
-```
+```bash
 bundle exec rake
 ```
 
 Start the visual preview server (available at http://localhost:9292):
 
-```
+```bash
 bundle exec rake server
 ```
 
 Run the terminal preview script:
 
-```
+```bash
 ruby preview.rb
 ```
 
 Enable debug mode to print each token and its value:
 
-```
+```bash
 DEBUG=1 ruby preview.rb
 ```
 
@@ -97,7 +96,7 @@ DEBUG=1 ruby preview.rb
 2. Start the server with `bundle exec rake server`.
 3. In another terminal, check for error tokens in the rendered output:
 
-   ```
+   ```bash
    curl -s http://localhost:9292 | grep 'class="err"'
    ```
 
