@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1
+
+### Improvements
+
+- Coverage of the metrics functions
+
 ## 0.3.0
 
 ### Improvements

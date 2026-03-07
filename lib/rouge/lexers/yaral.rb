@@ -60,7 +60,21 @@ module Rouge
           math.abs math.ceil math.floor math.geo_distance
           math.is_increasing math.log math.pow math.random
           math.round math.sqrt
-          metrics.functionName
+          metrics.alert_event_name_count
+          metrics.auth_attempts_fail metrics.auth_attempts_success
+          metrics.auth_attempts_total
+          metrics.dns_bytes_outbound
+          metrics.dns_queries_fail metrics.dns_queries_success
+          metrics.dns_queries_total
+          metrics.file_executions_fail metrics.file_executions_success
+          metrics.file_executions_total
+          metrics.http_queries_fail metrics.http_queries_success
+          metrics.http_queries_total
+          metrics.network_bytes_inbound metrics.network_bytes_outbound
+          metrics.network_bytes_total
+          metrics.resource_creation_success metrics.resource_creation_total
+          metrics.resource_deletion_success
+          metrics.resource_read_fail metrics.resource_read_success
           net.ip_in_range_cidr
           optimization.sample_rate
           re.regex re.capture re.capture_all re.replace

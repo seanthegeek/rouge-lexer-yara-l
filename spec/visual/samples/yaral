@@ -820,3 +820,29 @@ match:
 
 outcome:
   $total_events = sum($hourly_stats.count)
+
+// =====================================================
+// DETECTION RULE: metrics functions (Risk Analytics)
+// =====================================================
+rule MetricsFunctions {
+  meta:
+    description = "Tests metrics.* functions in outcome section"
+
+  events:
+    $e.metadata.event_type = "USER_LOGIN"
+    $user = $e.principal.user.userid
+
+  match:
+    $user over 1h
+
+  outcome:
+    $failed_auth = metrics.auth_attempts_fail($user, 1h, 24h, "user")
+    $success_auth = metrics.auth_attempts_success($user, 1h, 24h, "user")
+    $total_auth = metrics.auth_attempts_total($user, 1h, 24h, "user")
+    $dns_out = metrics.dns_bytes_outbound($user, 1h, 24h, "user")
+    $net_in = metrics.network_bytes_inbound($user, 1h, 24h, "user")
+    $net_out = metrics.network_bytes_outbound($user, 1h, 24h, "user")
+
+  condition:
+    $e and $failed_auth > 5
+}
