@@ -165,6 +165,8 @@ Before adding ANY keyword, function, or syntax element to the lexer:
 - **Do NOT use preview/beta features** unless explicitly asked. Only add GA (generally available) features.
 - **Do NOT fabricate or modify reference URLs.** Use ONLY the exact URLs listed in this file. If a URL doesn't work, say so — do not guess an alternative.
 - **Do NOT assume a function exists because a similar one does** (e.g., don't infer `strings.length` from `arrays.length`, or `hash.md5` from `hash.sha256`).
+- **Do NOT include information or concepts from the YARA documentation**. YARA and YARA-L have similar names but are distinct.
+- **Do Not assume that terms or concepts from YARA or SQL apply to YARA-L**. Again, only official use **OFFICIAL YARA-L documentation.
 
 ### Self-verification
 
