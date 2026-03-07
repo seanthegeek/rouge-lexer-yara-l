@@ -1,7 +1,16 @@
 {
+    "markdownlint.config": {
+        "MD024": false
+    },
     "cSpell.words": [
+        "dedup",
         "findall",
         "Googlebot",
+        "ltrim",
+        "mimetypes",
+        "nocase",
+        "rtrim",
+        "stddev",
         "Whalen",
         "YARA",
         "YARAL"
