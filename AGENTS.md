@@ -97,7 +97,6 @@ Use UDM Search time range and manage queries: <https://docs.cloud.google.com/chr
 - Use raw log search: <https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs>
 - Filter data in raw log search <https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs>
 
-
 ### Dashboards
 
 - Dashboard-specific functions: <https://docs.cloud.google.com/chronicle/docs/reference/yaral-functions-native-dashboards>
