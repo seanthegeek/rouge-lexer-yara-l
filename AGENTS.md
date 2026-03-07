@@ -51,8 +51,8 @@ Use these to understand the language,
 
 ### Core language
 
-- YARA-L 2.0 language syntax: <https://cloud.google.com/chronicle/docs/detection/yara-l-2-0-syntax>
 - YARA-L overview: <https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-overview>
+- YARA-L 2.0 language syntax: <https://cloud.google.com/chronicle/docs/detection/yara-l-2-0-syntax>
 - Meta section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/meta-syntax>
 - Events section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/events-syntax>
 - Match section syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/match-syntax>
@@ -77,12 +77,26 @@ Use these to understand the language,
 
 ### Search queries
 
-- UDM search: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search>
+- Search for events and alerts: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search>
+- Search best practices: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-best-practices>
+- Understand data availability for search: <https://docs.cloud.google.com/chronicle/docs/investigation/expected-data-availability-for-search>
+- Use context-enriched data in search: <https://docs.cloud.google.com/chronicle/docs/investigation/use-enriched-data-in-search>
+- Use UDM Search to investigate an entity: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-investigate-entity>
+Use UDM Search time range and manage queries: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-time-range>
 - Search joins: <https://docs.cloud.google.com/chronicle/docs/investigation/search-joins>
 - Correlate data with outer joins: <https://docs.cloud.google.com/chronicle/docs/investigation/outer-joins>
 - Statistics and aggregations in search: <https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search>
 - Conditions in search and dashboards: <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions>
 - Multi-stage queries: <https://docs.cloud.google.com/chronicle/docs/investigation/multi-stage-yaral>
+- Use the condition syntax in search and dashboards: <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions>
+- Use deduplication in Search and Dashboards: <https://docs.cloud.google.com/chronicle/docs/investigation/deduplication-yaral>
+- Control columns using select and unselect keywords: <https://docs.cloud.google.com/chronicle/docs/investigation/select-unselect>
+- Use metrics in search: <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-metrics-search>
+- Conduct a search for entity context data <https://docs.cloud.google.com/chronicle/docs/investigation/entity-context-in-search>
+- Conduct a raw log search: <https://docs.cloud.google.com/chronicle/docs/investigation/raw-log-search-in-investigate>
+- Use raw log search: <https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs>
+- Filter data in raw log search <https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs>
+
 
 ### Dashboards
 
