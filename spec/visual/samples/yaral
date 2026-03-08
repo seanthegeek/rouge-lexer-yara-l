@@ -128,6 +128,8 @@ rule VariableTypes {
     $e1.principal.ip in %suspicious_ips
     $e2.target.file.sha256 in %known_malware_hashes
     not $e1.principal.hostname in %whitelisted_hosts
+    $e1.principal.hostname in regex %hostname_patterns
+    $e1.principal.ip in cidr %internal_ranges
 
   match:
     $user over 5m

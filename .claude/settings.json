@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:docs.cloud.google.com)",
+      "Bash(python3 -c \":*)",
+      "Bash(curl -s http://localhost:9292/yaral)",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"rackup\")",
+      "Bash(pkill -f rackup)",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/getting-started')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/meta-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/events-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/match-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/outcome-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/condition-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/expressions')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/nested-if')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-or')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-n-of')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/repeated-fields')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/reference-list-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/detection-event-sampling')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/functions')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-syntax')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-metrics-search')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/investigation/deduplication-yaral')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/investigation/multi-stage-yaral')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/investigation/udm-search')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/investigation/entity-context-in-search')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/reports/visualization-in-search')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)' 'https://docs.cloud.google.com/chronicle/docs/detection/metrics-functions')"
+    ]
+  }
+}

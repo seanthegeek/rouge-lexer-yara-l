@@ -26,7 +26,8 @@ module Rouge
           before after true false
           select unselect dedup order limit
           asc desc
-          any all for of
+          any all of
+          cidr regex
           if else
           udm graph
           left right join outer every

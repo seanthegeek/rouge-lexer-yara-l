@@ -87,7 +87,6 @@ Do not use the quick-reference or overview pages as a substitute for the individ
 - Examples: YARA-L 2.0 queries <https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples>
 - Sample YARA-L 2.0 queries for dashboards <https://docs.cloud.google.com/chronicle/docs/reference/sample-yaral-for-native-dashboard>
 - Transition from SPL to YARA-L 2.0 <https://docs.cloud.google.com/chronicle/docs/yara-l/transition_spl_yaral>
-- Generate search queries with Gemini <https://docs.cloud.google.com/chronicle/docs/investigation/generate-udm-search-queries-gemini>
 
 ### Important context
 
@@ -157,6 +156,17 @@ Before adding ANY keyword, function, or syntax element to the lexer:
    ```
 
 4. **Only add** elements that appear in the fetched content. **Only remove** elements confirmed absent.
+
+### Confirmed absent from YARA-L 2.0 (do NOT re-add)
+
+The following elements have been verified against the full official documentation and are **not** present in YARA-L 2.0. They were previously in the lexer and removed. Do not re-add them.
+
+| Element | Why it was removed |
+| ------- | ------------------ |
+| `for` keyword | YARA keyword; not used in YARA-L 2.0. N-of syntax is `N of [...]`, not `for N of [...]`. |
+| `arrays.contains` function | Not in the YARA-L 2.0 functions reference. |
+| `strings.starts_with` function | Not in the YARA-L 2.0 functions reference. |
+| `metrics.functionName` function | Was a placeholder; replaced with the real `metrics.*` function list. |
 
 ### What NOT to do
 
