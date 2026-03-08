@@ -6,19 +6,19 @@ A Rouge lexer plugin for [YARA-L 2.0](https://cloud.google.com/chronicle/docs/de
 
 Install the gem directly:
 
-```ruby
+```sh
 gem install rouge-lexer-yara-l
 ```
 
 Or add it to your `Gemfile`:
 
-```ruby
+```sh
 gem 'rouge-lexer-yara-l'
 ```
 
 Then run:
 
-```ruby
+```sh
 bundle install
 ```
 
@@ -62,31 +62,31 @@ Run `bundle install`, then use ` ```yaral ` fences in your posts and pages. Jeky
 
 Install dependencies:
 
-```bash
+```sh
 bundle install
 ```
 
 Run the test suite:
 
-```bash
+```sh
 bundle exec rake
 ```
 
 Start the visual preview server (available at http://localhost:9292):
 
-```bash
+```sh
 bundle exec rake server
 ```
 
 Run the terminal preview script:
 
-```bash
+```sh
 ruby preview.rb
 ```
 
 Enable debug mode to print each token and its value:
 
-```bash
+```sh
 DEBUG=1 ruby preview.rb
 ```
 
