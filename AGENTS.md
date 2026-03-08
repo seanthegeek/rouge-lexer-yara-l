@@ -45,63 +45,49 @@ DEBUG=1 bundle exec ruby preview.rb
 - Tests assert that lexing demo/sample files produces no `Error` tokens and reconstructs the original input exactly (lossless round-trip).
 - When adding new YARA-L keywords or functions, update both the lexer sets and the visual sample file to ensure test coverage.
 
-## Official references (use ONLY these — do not guess syntax)
+## Official YARA-L documentation (use ONLY these — do not guess syntax)
 
-Use these to understand the language,
+**MANDATORY: Before writing or modifying the lexer, you MUST fetch and read every URL in this list.** This is not background reading — it is a required prerequisite step. Fetch each page, extract the function or command names, and verify them against the lexer before declaring any work complete.
 
-### Core language
+Do not use the quick-reference or overview pages as a substitute for the individual detail pages. The quick-reference pages omit aliases, secondary functions, and command-specific keywords that only appear on the detail pages. Every page in this list exists because it contains information not fully captured elsewhere.
 
-- YARA-L overview: <https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-overview>
-- YARA-L 2.0 language syntax: <https://cloud.google.com/chronicle/docs/detection/yara-l-2-0-syntax>
-- Meta section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/meta-syntax>
-- Events section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/events-syntax>
-- Match section syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/match-syntax>
-- Outcome section syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/outcome-syntax>
-- Condition section syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/condition-syntax>
-- Options section syntax: <https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax>
-- Expressions, operators, and constructs: <https://docs.cloud.google.com/chronicle/docs/yara-l/expressions>
-- Use nested if statements for more complex logic: <https://docs.cloud.google.com/chronicle/docs/yara-l/nested-if>
-- Use or in the condition section: <https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-or>
-- Use N OF syntax with event variables: <https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-n-of>
-- Repeated fields: <https://docs.cloud.google.com/chronicle/docs/yara-l/repeated-fields>
-- Use reference lists and data tables in YARA-L 2.0: <https://docs.cloud.google.com/chronicle/docs/yara-l/reference-list-syntax>
-- Functions reference: <https://docs.cloud.google.com/chronicle/docs/yara-l/functions>
-- YARA-L 2.0 examples: <https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples>
-
-### Detection rules
-
-- YARA-L best practices: <https://cloud.google.com/chronicle/docs/detection/yara-l-best-practices>
-- Composite detection rules: <https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules>
-- Default detection rules (examples): <https://docs.cloud.google.com/chronicle/docs/detection/default-rules>
-- Chronicle detection-rules GitHub: <https://github.com/chronicle/detection-rules>
-
-### Search queries
-
-- Search for events and alerts: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search>
-- Search best practices: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-best-practices>
-- Understand data availability for search: <https://docs.cloud.google.com/chronicle/docs/investigation/expected-data-availability-for-search>
-- Use context-enriched data in search: <https://docs.cloud.google.com/chronicle/docs/investigation/use-enriched-data-in-search>
-- Use UDM Search to investigate an entity: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-investigate-entity>
-Use UDM Search time range and manage queries: <https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-time-range>
-- Search joins: <https://docs.cloud.google.com/chronicle/docs/investigation/search-joins>
-- Correlate data with outer joins: <https://docs.cloud.google.com/chronicle/docs/investigation/outer-joins>
-- Statistics and aggregations in search: <https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search>
-- Conditions in search and dashboards: <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions>
-- Multi-stage queries: <https://docs.cloud.google.com/chronicle/docs/investigation/multi-stage-yaral>
-- Use the condition syntax in search and dashboards: <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions>
-- Use deduplication in Search and Dashboards: <https://docs.cloud.google.com/chronicle/docs/investigation/deduplication-yaral>
-- Control columns using select and unselect keywords: <https://docs.cloud.google.com/chronicle/docs/investigation/select-unselect>
-- Use metrics in search: <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-metrics-search>
-- Conduct a search for entity context data <https://docs.cloud.google.com/chronicle/docs/investigation/entity-context-in-search>
-- Conduct a raw log search: <https://docs.cloud.google.com/chronicle/docs/investigation/raw-log-search-in-investigate>
-- Use raw log search: <https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs>
-- Filter data in raw log search <https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs>
-
-### Dashboards
-
-- Dashboard-specific functions: <https://docs.cloud.google.com/chronicle/docs/reference/yaral-functions-native-dashboards>
-- Sample dashboard queries: <https://docs.cloud.google.com/chronicle/docs/reference/sample-yaral-for-native-dashboard>
-- Dashboards overview: <https://docs.cloud.google.com/chronicle/docs/reports/native-dashboards>
+- Get started <https://docs.cloud.google.com/chronicle/docs/yara-l/getting-started>
+- Meta section <https://docs.cloud.google.com/chronicle/docs/yara-l/meta-syntax>
+- Events section <https://docs.cloud.google.com/chronicle/docs/yara-l/events-syntax>
+- Match section <https://docs.cloud.google.com/chronicle/docs/yara-l/match-syntax>
+- Outcome section <https://docs.cloud.google.com/chronicle/docs/yara-l/outcome-syntax>
+- Conditions section <https://docs.cloud.google.com/chronicle/docs/yara-l/condition-syntax>
+- Options section <https://docs.cloud.google.com/chronicle/docs/yara-l/options-syntax>
+- Expressions, operators, and other constructs <https://docs.cloud.google.com/chronicle/docs/yara-l/expressions>
+- Nested if statements <https://docs.cloud.google.com/chronicle/docs/yara-l/nested-if>
+- Use OR syntax in the condition section <https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-or>
+- Use N OF syntax with event variables <https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-n-of>
+- Repeated fields <https://docs.cloud.google.com/chronicle/docs/yara-l/repeated-fields>
+- Reference list syntax <https://docs.cloud.google.com/chronicle/docs/yara-l/reference-list-syntax>
+- Detection event sampling <https://docs.cloud.google.com/chronicle/docs/yara-l/detection-event-sampling>
+- Functions <https://docs.cloud.google.com/chronicle/docs/yara-l/functions>
+- Statistics and aggregations <https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search>
+- Use conditions in Search and Dashboards <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions>
+- Create and save visualizations in Search <https://docs.cloud.google.com/chronicle/docs/reports/visualization-in-search>
+- Use metrics in Search <https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-metrics-search>
+- Use deduplication in Search and Dashboards <https://docs.cloud.google.com/chronicle/docs/investigation/deduplication-yaral>
+- Create multi-stage queries <https://docs.cloud.google.com/chronicle/docs/investigation/multi-stage-yaral>
+- Use context-enriched data in rules <https://docs.cloud.google.com/chronicle/docs/detection/use-enriched-data-in-rules>
+- Context-aware analysis overview <https://docs.cloud.google.com/chronicle/docs/detection/context-aware-analytics>
+- Specify entity risk score in rules <https://docs.cloud.google.com/chronicle/docs/detection/yara-l-entity-risk-score>
+- Use metric functions for Risk Analytics rules <https://docs.cloud.google.com/chronicle/docs/detection/metrics-functions>
+- Applied Threat Intelligence fusion feed overview <https://docs.cloud.google.com/chronicle/docs/detection/ati-fusion-feed>
+- Composite detections overview <https://docs.cloud.google.com/chronicle/docs/detection/composite-detections>
+- Construct composite detection rules <https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules>
+- Rule structure and best practices <https://docs.cloud.google.com/chronicle/docs/detection/yara-l-best-practices>
+- Run a rule against historical data <https://docs.cloud.google.com/chronicle/docs/detection/run-rule-historical-data>
+- Configure rule exclusions <https://docs.cloud.google.com/chronicle/docs/detection/rule-exclusions>
+- View and troubleshoot rule errors <https://docs.cloud.google.com/chronicle/docs/detection/rule-errors>
+- Known issues and limitations <https://docs.cloud.google.com/chronicle/docs/detection/yara-l-issues>
+- Examples: YARA-L 2.0 queries <https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples>
+- Sample YARA-L 2.0 queries for dashboards <https://docs.cloud.google.com/chronicle/docs/reference/sample-yaral-for-native-dashboard>
+- Transition from SPL to YARA-L 2.0 <https://docs.cloud.google.com/chronicle/docs/yara-l/transition_spl_yaral>
+- Generate search queries with Gemini <https://docs.cloud.google.com/chronicle/docs/investigation/generate-udm-search-queries-gemini>
 
 ### Important context
 
@@ -191,3 +177,12 @@ After making changes, verify correctness by **re-fetching the source documentati
 - **Follow Rouge conventions exactly.** Study existing lexers (especially JSON and SQL) for patterns. Don't invent novel approaches.
 - **The Error token count is the ground truth.** The visual preview server is the authoritative test. `bundle exec rake` passing is necessary but not sufficient — you must also have zero `class="err"` spans.
 - **Iterate until clean.** Do not declare the task complete until both `bundle exec rake` passes AND the Error token count is zero for both demo and visual sample.
+
+## Changelog
+
+The changelog ([CHANGELOG.md](CHANGELOG.md)) follows the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format and [Semantic Versioning](https://semver.org/spec/v2.0.0.html). When updating the changelog:
+
+- Use `## [version] - YYYY-MM-DD` for release headings
+- Use `### Added`, `### Changed`, `### Removed` as second-level section headings
+- Use `#### Category name` as third-level headings within a section (e.g. `#### Commands`, `#### Evaluation functions`)
+- Ensure blank lines surround all headings to satisfy markdownlint
