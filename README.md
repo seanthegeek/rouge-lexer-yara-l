@@ -46,6 +46,7 @@ rule SuspiciousLogin {
 }
 ```
 ~~~
+
 ### Jekyll / GitHub Pages
 
 Add the gem to your site's `Gemfile` inside the `:jekyll_plugins` group:
