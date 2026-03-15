@@ -10,6 +10,8 @@
         "ltrim",
         "mimetypes",
         "nocase",
+        "pkill",
+        "rackup",
         "rtrim",
         "stddev",
         "Whalen",
