@@ -26,8 +26,8 @@ bundle install
 
 Once installed, Rouge will automatically discover the lexer. You can use `yaral`, `yara-l`, or `chronicle` as the language tag in fenced code blocks:
 
-```markdown
-````yaral
+~~~markdown
+```yaral
 rule SuspiciousLogin {
   meta:
     author = "security-team"
@@ -45,7 +45,7 @@ rule SuspiciousLogin {
     $e
 }
 ```
-
+~~~
 ### Jekyll / GitHub Pages
 
 Add the gem to your site's `Gemfile` inside the `:jekyll_plugins` group:
